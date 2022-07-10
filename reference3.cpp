@@ -4,13 +4,14 @@ int main()
 {
 	int no=11;
 	int &x=no;
-	
-	int *p=&x;
+	int &y=x;
 	
 	cout<<"\nValue of no is:"<<no;
 	cout<<"\nValue of x is:"<<x;
+	cout<<"\nValue of y is:"<<y;
+	
 	cout<<"\nAddress of no is:"<<&no;
 	cout<<"\nAddress of x is:"<<&x;
-	cout<<"\nAddress of x in p is:"<<p;
+	cout<<"\nAddress of y is:"<<&y;
 	return 0;
 }

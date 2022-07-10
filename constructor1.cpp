@@ -1,47 +1,35 @@
 #include<iostream>
-#include<stdio.h>
 using namespace std;
-
 class Demo
 {
 	public:
-	int x;                                     //Characteristics
-	int y;                                     //Characteristics
+	int x;
+	int y;
 	
-	Demo()                                     //Default Constructor
+	Demo()
 	{
-		cout<<"\nInside Default Constructor";
+		cout<<"\nInside default constructor";
 		x=0;
 		y=0;
 	}
-	Demo(int i,int j)                           //Parameterized Constructor
+	
+	Demo(int i,int j)
 	{
-		cout<<"\nInside Parameterized Constructor";
+		cout<<"\nInside parameterised constructor";
 		x=i;
 		y=j;
 	}
-	Demo(Demo &ref)                        //Copy Constructor
+	Demo(Demo &ref)
 	{
-		cout<<"\nInside Destructor";
+		cout<<"\nInside Copy Constructor";
+		x=ref.x;
+		y=ref.y;
 	}
-	
-	~Demo()
-	{
-		cout<<"\nInside Destructor";
-	}
-	
 };
 int main()
 {
-	Demo obj1(11,12);
-	Demo obj2(51,101);
-	printf("\nSize of obj1:%d",sizeof(obj1));
-	cout<<"\nValue of x in obj1:"<<obj1.x;
-	cout<<"\nValue of y in obj1:"<<obj1.y;
-	
-	obj1.x++;
-	cout<<"\nNew value of x of obj1is:"<<obj1.x;
-	cout<<"\nNew value of x of obj2 is:"<<obj2.x;
-	
-	return 0;
+   Demo obj1(11,12);
+   Demo obj2(obj1);
+   
+   return 0;
 }
