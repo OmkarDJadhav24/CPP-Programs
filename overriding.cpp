@@ -6,49 +6,59 @@ class Base
 	public:
 		int x,y;
 		
-		void fun()
+		virtual void fun()      //1000
 		{
 			cout<<"\nInside Base fun";
 		}
-		virtual void gun()
+		
+		virtual void gun()    //2000
 		{
 			cout<<"\nInside Base gun";
 		}
-		virtual void sun()
+				
+	    void sun()           //3000
 		{
 			cout<<"\nInside Base sun";
 		}
-		virtual void run()=0;
-};
+		
+		virtual void run()   //4000
+		{
+			cout<<"\nInside Base run";
+		}
+		
+};	
 
 class Derived : public Base
 {
 	public:
 		int i,j;
 		
-		void fun()
+		void fun()     //5000
 		{
 			cout<<"\nInside Derived fun";
 		}
-		virtual void gun()
+		
+		virtual void gun() //6000
 		{
 			cout<<"\nInside Derived gun";
 		}
-		void run()
+		
+		void sun()             //7000
 		{
-			cout<<"\nInside Derived run";
+		    cout<<"\nInside Derived sun";
+		}
+		virtual void mun()            //8000
+		{
+			cout<<"\nInside Derived mun";
 		}
 };
 int main()
 {
-	Derived dobj;
-	Base *bp=NULL;
-	bp=&dobj;
-	
-	bp->fun();
-	bp->gun();
-	bp->sun();
-	bp->run();
-	
+	Base *bp=new Derived();                     //upcasting
+	bp->fun();            //Derived fun
+	bp->gun();             //Derived gun
+	bp->sun();             //Base sun
+	bp->run();             //Base run
+	//bp->mun();            Not Allowed
 	return 0;
 }
