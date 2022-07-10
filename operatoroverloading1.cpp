@@ -7,16 +7,17 @@ class Demo
 		int x;
 		int y;
 		
-		Demo(int a=10,int b=20)
+		Demo(int i=10,int j=20)
 		{
-			x=a;
-			y=b;
+			x=i;
+			y=j;
 		}
 };
 
-Demo operator +(Demo op1,Demo op2)
+Demo operator + (Demo op1,Demo op2)
 {
-	return Demo(op1.x+op2.x,op1.y+op2.y);
+	cout<<"Inside + operator\n";
+	return Demo(op1.x + op2.x,op1.y + op2.y);
 }
 int main()
 {
@@ -24,9 +25,8 @@ int main()
 	Demo obj2(51,101);
 	Demo robj(0,0);
 	
-	robj=obj1 + obj2;         //robj=+(obj1,obj2);
-	cout<<robj.x<<"\n";
-	cout<<robj.y<<"\n";
-	
+	robj=obj1 + obj2;               //robj= +(obj1,obj2);
+	cout<<robj.x<<"\n";             //62
+	cout<<robj.y<<"\n";             //122
 	return 0;
 }

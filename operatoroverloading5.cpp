@@ -7,42 +7,38 @@ class Demo
 		int x;
 		int y;
 		
-		Demo(int a=10,int b=20)
+		Demo(int i=0,int j=0)
 		{
-			x=a;
-			y=b;
+			x=i;
+			y=j;
 		}
+		
 };
 
-Demo operator ++(Demo &op)                 //Pre
+Demo operator +(Demo op)
 {
-	op.x++;
-	op.y++;
 	return op;
 }
 
-Demo operator ++(Demo &op,int)             //Post
+Demo operator -(Demo op)
 {
-	op.x++;
-	op.y++;
-	
-	return Demo(op.x-1,op.y-1);
+	return Demo(-op.x,-op.y);
 }
+
 int main()
 {
-	Demo obj1(11,21);
-	Demo obj2(51,101);
+	Demo obj1(11,-21);
+	Demo obj2(51,-101);
 	Demo robj1(0,0);
 	Demo robj2(0,0);
 	
-	robj1=++obj1;                               //without dummy
-	robj2=obj2++;                               //with dummy
+	robj1= +obj1;
+	cout<<robj1.x<<"\n";    //11
+	cout<<robj1.y<<"\n";     //-21
 	
-	cout<<robj1.x<<" "<<robj1.y<<"\n";
-	cout<<obj1.x<<" "<<obj1.y<<"\n";
-	
-	cout<<robj2.x<<" "<<robj2.y<<"\n";
-	cout<<obj2.x<<" "<<obj2.y<<"\n";
+	robj2= -obj2;
+	cout<<robj2.x<<"\n";    //51
+	cout<<robj2.y<<"\n";    //-101
 	
 	return 0;
 }

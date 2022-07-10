@@ -1,5 +1,3 @@
-//positive negative
-
 #include<iostream>
 using namespace std;
 
@@ -9,34 +7,52 @@ class Demo
 		int x;
 		int y;
 		
-		Demo(int a,int b)
+		Demo(int i=0,int j=0)
 		{
-			x=a;
-			y=b;
+			x=i;
+			y=j;
 		}
+		
 };
 
-Demo operator +(Demo op1)
+bool operator == (Demo op1,Demo op2)
 {
-	return op1;
+	if((op1.x==op2.x) && (op1.y==op2.y))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
-Demo operator -(Demo op1)
+bool operator > (Demo op1,Demo op2)
 {
-	return Demo(-op1.x,-op1.y);
+	if((op1.x>op2.x) && (op1.y>op2.y))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
+
+
 int main()
 {
-	Demo obj1(11,-21);
-	Demo obj2(51,-101);
-	Demo robj1(0,0);
-	Demo robj2(0,0);
+	Demo obj1(11,21);
+	Demo obj2(51,101);
 	
-	robj1=+obj1;
-	robj2=-obj2;
-	
-	cout<<robj1.x<<" "<<robj1.y<<"\n";
-	cout<<robj2.x<<" "<<robj2.y<<"\n";
+	if(obj1 > obj2)                   // ==(obj1,obj2);
+	{
+		cout<<"Obj1 is greater\n";
+	}
+	else
+	{
+		cout<<"Obj2 is greater\n";
+	}
 	
 	return 0;
 }
