@@ -3,28 +3,32 @@ using namespace std;
 
 int main()
 {
-	int no1=11;
-	char ch1='A';
+	struct Demo
+	{
+		int no1;
+		int no2;
+	};
 	
-	typedef int Number;
-	Number no2=12;
+	//First way to use type def
+	typedef struct Demo DEMO;
+	typedef struct Demo * PDEMO;
+	typedef struct Demo ** PPDEMO;
 	
-	typedef char LETTER;
-	LETTER ch2='B';
-	ch2++;
+	//struct Demo obj;
+	Demo obj;
+	//struct Demo *p=&obj;
+	PDEMO p=&obj;
+	//struct Demo **q=&p;
+	PPDEMO q=&p;
 	
-	typedef int * pNo;
-	pNo iptr=&no1;
 	
-	typedef char * pCh;
-	pCh cptr=&ch1;
-	
-	//cout<<no1<<"\n";
-	//cout<<no2<<"\n";
-	//cout<<ch1<<"\n";
-	//cout<<ch2<<"\n";
-	cout<<* iptr<<"\n";
-	cout<<* cptr<<"\n";
+	/*  Second way to use type def
+	typedef struct Demo
+	{
+		int no1;
+		int no2;
+	}DEMO,*PDEMO,**PPDEMO;
+	*/
 	
 	return 0;
 }
